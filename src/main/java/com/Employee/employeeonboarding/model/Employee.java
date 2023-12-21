@@ -17,21 +17,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-
 @Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
-    @NotNull(message="User should not be null")
     private String empName;
-    @Min(18)
-    @Max(50)
     private int age;
     private String designation;
-    @NotNull
     private long mobileNumber;
-    @Email(message = "invalid email address")
     private String gmail;
-
+    public Employee(String empName, int age, String designation, long mobileNumber, String gmail) {
+        this.empName = empName;
+        this.age = age;
+        this.designation = designation;
+        this.mobileNumber = mobileNumber;
+        this.gmail = gmail;
+    }
 }
